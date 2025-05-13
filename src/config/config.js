@@ -9,7 +9,7 @@ const config = {
     nodeEnv: process.env.NODE_ENV || 'development',
 
     // Configuración de la base de datos
-    mongodbUri: process.env.MONGODB_URI,
+    mongodbUri: process.env.MONGODB_URI || process.env.MONGO_URL,
 
     // Configuración de JWT
     jwtSecret: process.env.JWT_SECRET,
@@ -20,7 +20,7 @@ const config = {
 };
 
 // Validar variables de entorno requeridas
-const requiredEnvVars = ['JWT_SECRET'];
+const requiredEnvVars = ['MONGODB_URI' || 'MONGO_URL', 'JWT_SECRET'];
 const missingEnvVars = requiredEnvVars.filter(envVar => !process.env[envVar]);
 
 if (missingEnvVars.length > 0) {
