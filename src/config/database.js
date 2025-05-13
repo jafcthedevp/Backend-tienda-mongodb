@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import config from './config.js'; // Adjust the path as necessary
 
 const connectDB = async () => {
     try {
